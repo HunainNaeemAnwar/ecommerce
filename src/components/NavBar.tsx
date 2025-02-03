@@ -47,7 +47,7 @@ const HeaderSection = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <nav className="relative top-8 w-full py-4 z-40 flex justify-center items-center bg-white border-b-2 border-[#F2F0F1]">
+    <nav className="relative top-8 w-full py-4 z-30 flex justify-center items-center bg-white border-b-2 border-[#F2F0F1]">
       <div className="w-full px-4 lg:px-6 xl:px-20 flex justify-between items-center gap-4 xl:gap-10">
         {/* Hamburger Mobile-menu */}
         <div className="flex items-center justify-center gap-3">

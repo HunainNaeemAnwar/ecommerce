@@ -17,6 +17,7 @@ export default {
         Integral: "var(--font-integral-cf)",
         Poppins: "var(--font-poppins)",
       },
+      
     },
   },
   plugins: [],

@@ -7,7 +7,6 @@ export const generateStaticParams = async () => {
   const query = `*[_type == 'product']{
     slug
   }`;
-
   const slugs: any = await client.fetch(query);
   const slugRoutes = slugs.map((slug: any) => slug?.slug?.current);
   return slugRoutes?.map((slug: string) => ({
@@ -16,8 +15,7 @@ export const generateStaticParams = async () => {
 };
 
 const Page = async ({ params }: any) => {
-  // You need to await params before using it
-  const { slug } = await params; // Await params
+  const { slug } = await params;
 
   const query = `*[_type == 'product' && slug.current == $slug][0]{
     ...

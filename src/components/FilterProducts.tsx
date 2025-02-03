@@ -9,9 +9,24 @@ import React, { useState } from "react";
 import ColorSelector from "./ColorSelector";
 import { Filter } from "lucide-react";
 import SizeSelector from "./SizeSelector";
+import { CgClose } from "react-icons/cg";
 
-const colors = ["Red", "Blue", "Green", "Orange", "Pink"];
-const sizes = ["S", "M", "L", "XL"];
+const colors = [
+  "Red",
+  "Blue",
+  "Green",
+  "Orange",
+  "Pink",
+  "Black",
+  "White",
+  "Gray",
+  "Yellow",
+  "Purple",
+  "Brown",
+  "Navy",
+];
+
+const sizes = ["S", "M", "L", "XL", "XXL"];
 
 const FilterProducts = () => {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
@@ -44,43 +59,60 @@ const FilterProducts = () => {
   };
 
   return (
-    <section className="relative px-2 col-span-2 min-h-max">
-      {/* Filter icon for small screens */}
-      <button
-        className="md:hidden flex items-center gap-2 px-4 py-2 bg-black text-white font-Satoshi rounded fixed top-26 right-4 z-50"
-        onClick={() => setFilterVisible(!isFilterVisible)}
-      >
-        <Filter className="w-6 h-6" />
-        Filters
-      </button>
+    <section className="z-50">
+      {/* Filter icon for all screens */}
+      {isFilterVisible ? null : (
+        <button
+          className="absolute right-4 top-20 z-50 flex items-center gap-2 px-2 py-2 bg-black text-white font-Satoshi "
+          onClick={() => setFilterVisible(!isFilterVisible)}
+        >
+          <Filter className="w-6 h-6" />
+        </button>
+      )}
+
+      {/* Background overlay */}
+      {isFilterVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-30  z-30"></div>
+      )}
 
       {/* Filter menu with Tailwind CSS animation */}
       <div
-        className={`
-          fixed bottom-0 left-0 right-0 bg-white z-40 p-4 max-h-full overflow-y-auto transition-transform duration-500 ease-in-out 
-          ${isFilterVisible ? "transform translate-y-0" : "transform translate-y-full"} 
-          md:static md:transform-none md:opacity-100
-        `}
+        className={`fixed bottom-0 left-0 right-0 bg-white z-40 p-4 max-h-[80vh] overflow-y-auto transition-transform duration-500 ease-in-out ${isFilterVisible ? "translate-y-0" : "translate-y-full"} md:bottom-auto md:top-0 md:left-0 md:right-auto md:w-1/4 md:translate-y-0 ${isFilterVisible ? "md:translate-x-0" : "md:-translate-x-full"} md:max-h-full`}
       >
+        <style jsx>{`
+          div::-webkit-scrollbar {
+            width: 8px;
+          }
+          div::-webkit-scrollbar-track {
+            background: #f1f1f1;
+          }
+          div::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 10px;
+            border: 2px solid #f1f1f1;
+          }
+          div::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+          }
+        `}</style>
+
         {/* Categories */}
-        <div className="flex flex-col gap-4 border-b border-black border-opacity-30 text-[16px] font-SatoshiRegular">
-          <div
-            className="flex flex-row justify-between px-7 py-3 border-t border-b border-black border-opacity-30 cursor-pointer"
-            onClick={() => toggleSection("category")}
-          >
-            <h3 className="font-Satoshi text-[20px]">Filters</h3>
-            {sections.category ? (
-              <RiArrowDropUpLine className="w-6 h-6" />
-            ) : (
-              <RiArrowDropDownLine className="w-6 h-6" />
-            )}
+        <div className="flex flex-col gap-4 border-b border-black border-opacity-30 text-sm font-Poppins font-normal">
+          <div className="flex flex-row justify-between items-center px-2  py-3 border-t border-b border-black border-opacity-30 cursor-pointer">
+            <h3 className="font-Poppins text-xl font-medium tracking-tight">
+              Filters
+            </h3>
+            <CgClose
+              className="w-6 h-6 md:w-4 md:h-4 lg:w-5 lg:h-5"
+              onClick={() => setFilterVisible(!isFilterVisible)}
+            />
           </div>
           {sections.category && (
             <>
               {["TShirts", "Shorts", "Shirts", "Hoodie", "Jeans"].map(
                 (item) => (
                   <div
-                    className="flex flex-row justify-between px-6"
+                    className="flex flex-row justify-between px-4 lg:px-6"
                     key={item}
                   >
                     <Link href={"/CategoryPage"}>{item}</Link>
@@ -93,7 +125,7 @@ const FilterProducts = () => {
         </div>
 
         {/* Price */}
-        <div className="flex flex-col text-[16px] font-SatoshiRegular border-b border-black border-opacity-30 py-4">
+        <div className="flex flex-col text-sm font-Poppins font-normal border-b border-black border-opacity-30 py-4">
           <div
             className="flex justify-between font-Satoshi text-[20px] cursor-pointer"
             onClick={() => toggleSection("price")}
@@ -113,18 +145,27 @@ const FilterProducts = () => {
                 min={10}
                 value={priceRange}
                 onChange={handleRangeChange}
-                className="appearance-none cursor-pointer slider-thumb rounded-lg bg-black"
+                className="appearance-none cursor-pointer w-full h-2 bg-black rounded-lg"
                 id="priceRange"
+                style={{
+                  WebkitAppearance: "none",
+                  appearance: "none",
+                  background: "black",
+                  height: "4px",
+                  borderRadius: "8px",
+                  outline: "none",
+                }}
               />
+
               <div className="flex flex-row mt-3 justify-evenly">
-                <p>${priceRange}</p>
+                <p className="font-semibold">${priceRange}</p>
               </div>
             </div>
           )}
         </div>
 
         {/* Colors */}
-        <div className="text-[16px] font-SatoshiRegular border-b border-black border-opacity-30 pb-6">
+        <div className="text-sm font-Poppins  border-b border-black border-opacity-30 pb-6">
           <div
             className="flex flex-row justify-between text-[20px] font-Satoshi cursor-pointer"
             onClick={() => toggleSection("color")}
@@ -142,7 +183,7 @@ const FilterProducts = () => {
                 colors={colors}
                 selectedColor={selectedColor || ""}
                 onColorSelect={handleColorSelect}
-                gridClass="grid md:grid-cols-3 xl:grid-cols-4 gap-2 place-content-center place-items-center"
+                gridClass="grid grid-cols-8 md:grid-cols-3 xl:grid-cols-4 gap-2 place-content-center place-items-center"
               />
             </div>
           )}
@@ -173,6 +214,9 @@ const FilterProducts = () => {
             </div>
           )}
         </div>
+        <button className="w-full bg-black text-white py-2 font-Satoshi rounded-full">
+          Apply Filter
+        </button>
       </div>
     </section>
   );

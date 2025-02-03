@@ -9,11 +9,11 @@ import { urlFor } from "@/sanity/lib/image";
 
 const Product = ({ product }: any) => {
   // const dispatch = useDispatch();
+  console.log(product);
 
   if (!product) {
     return <div>No product data available</div>;
   }
-
   return (
     <div className="place-self-center">
       <div className="px-10 py-10 rounded-lg relative group">
