@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReviewCard from "@/components/ReviewsCard";
 import SortDropDown from "./SortDropDown";
+import { Pencil } from "lucide-react";
 
 export interface _Review {
   userName: string;
@@ -152,12 +153,12 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
       {isFormVisible && (
         <>
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 z-10"
+            className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 z-40"
             onClick={() => setIsFormVisible(false)}
           ></div>
           <div
             ref={formRef}
-            className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-white p-6 w-72 shadow-xl md:w-96 rounded-lg z-20 transition-transform duration-300"
+            className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-white p-6 w-72 shadow-xl md:w-96 rounded-lg z-50 transition-transform duration-300"
           >
             <h2 className="text-xl font-Integral mb-4">Submit Your Review</h2>
             <form
@@ -240,9 +241,15 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
             <div className="text-center">
               <button
                 onClick={() => setIsFormVisible(true)}
-                className="bg-black text-white text-[16px] lg:text-sm font-Satoshi px-2 py-2 lg:px-4 lg:py-2 rounded-full"
+                className="bg-black hidden sm:block text-white text-[16px] lg:text-sm font-Satoshi px-2 py-2 lg:px-4 lg:py-2 rounded-full"
               >
                 Write a Review
+              </button>
+              <button
+                onClick={() => setIsFormVisible(true)}
+                className="bg-black text-white text-[16px] lg:text-sm font-Satoshi px-2 py-2 lg:px-4 lg:py-2 rounded-full"
+              >
+                <Pencil className="w-4 h-4" />
               </button>
             </div>
           </div>

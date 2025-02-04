@@ -24,7 +24,7 @@ const HeroSection = async () => {
       <div className="grid grid-cols-1 relative md:grid-cols-12 gap-y-10 xl:gap-y-[90px] lg:gap-y-[110px] md:gap-y-[120px] pb-[120px] md:pb-0 px-6 xl:px-[100px] md:grid-rows-[80%_20%]">
         <div className="col-span-6 md:py-6 lg:py-12 xl:py-16 mt-10 place-self-start text-center sm:text-left">
           <div>
-            <h1 className="mb-4 md:mb-2 text-start md:leading-[42px] lg:leading-[64px] text-[50px] leading-[44px] md:text-[50px] lg:text-[56px] xl:text-[60px] font-Integral">
+            <h1 className="mb-4 md:mb-2 text-start md:leading-[42px] lg:leading-[52px] text-[50px] leading-[44px] md:text-[50px] lg:text-[56px] xl:text-[60px] font-Integral">
               {heroData.title || "Default Title"}
             </h1>
             <p className="text-[18px] lg:text-[20px] mb-3 md:mb-3 lg:mb-6 leading-[22px] text-start font-Satoshi">
@@ -58,7 +58,7 @@ const HeroSection = async () => {
             </div>
           </div>
         </div>
-        <div className="col-span-6 relative place-self-center md:mt-[59px] bg-[#F2F0F1] h-[400px] w-[400px] md:w-[390px] md:h-[430px] lg:w-[480px] lg:h-[500px] xl:w-[580px] xl:h-[600px]">
+        <div className="col-span-6 relative place-self-center md:mt-[59px] bg-[#F2F0F1] h-[360px] w-[360px] sm:h-[400px] sm:w-[400px] md:w-[390px] md:h-[430px] lg:w-[480px] lg:h-[500px] xl:w-[580px] xl:h-[600px]">
           <Image
             src={
               heroData.image
@@ -73,70 +73,75 @@ const HeroSection = async () => {
           <div className="w-6 h-6">
             <Image
               src={"/Images/Stars.svg"}
-              width={60}
-              height={60}
+              width={50}
+              height={50}
               alt="vector"
-              className="absolute top-32 bg-transparent"
+              className="absolute top-32 left-3 bg-transparent"
             />
           </div>
           <div className="w-3 h-3">
             <Image
               src={"/Images/Stars.svg"}
-              width={100}
-              height={100}
+              width={80}
+              height={80}
               alt="vector"
-              className="absolute top-4 right-2 bg-transparent"
+              className="absolute top-4 right-3 bg-transparent"
             />
           </div>
         </div>
-        <div className="w-full grid md:grid-rows-1 md:grid-cols-5 grid-cols-3 place-items-center place-self-end absolute bg-black h-[122px]">
+        <div className="w-full grid md:grid-rows-1 md:grid-cols-5 grid-cols-3 place-items-center place-self-end gap-x-2 absolute bg-black h-[122px]">
           <Link href={"/"}>
-            <div className="w-[120px] h-[30px]">
+            <div className="sm:w-[120px] sm:h-[30px] w-[80px] h-[25px] relative">
               <Image
                 src={"/Images/Brands/versace.png"}
                 width={100}
                 height={100}
                 alt="versace"
+                className="absolute w-full h-full"
               />
             </div>
           </Link>
           <Link href={"/"}>
-            <div className="w-[120px] h-[50px]">
+            <div className="sm:w-[120px] sm:h-[30px] w-[80px] h-[25px] relative">
               <Image
                 src={"/Images/Brands/zara.png"}
                 width={100}
                 height={100}
                 alt="zara"
+                className="absolute w-full h-full"
               />
             </div>
           </Link>
           <Link href={"/"}>
-            <div className="w-[120px] h-[30px]">
+            <div className="sm:w-[120px] sm:h-[30px] w-[80px] h-[25px] relative">
               <Image
                 src={"/Images/Brands/gucci.png"}
                 width={100}
                 height={100}
                 alt="gucci"
+                className="absolute w-full h-full"
               />
             </div>
           </Link>
           <Link href={"/"} className="col-span-2 md:col-span-1">
-            <div className="w-[120px] h-[30px]">
+            <div className="sm:w-[120px] sm:h-[30px] w-[80px] h-[25px] relative">
               <Image
                 src={"/Images/Brands/prada.png"}
                 width={120}
                 height={100}
                 alt="prada"
+                className="absolute w-full h-full"
               />
             </div>
           </Link>
           <Link href={"/"} className="mr-[130px] md:mr-0">
-            <div className="w-[120px] h-[30px]">
+            <div className="sm:w-[120px] sm:h-[30px] w-[80px] h-[25px] relative">
               <Image
                 src={"/Images/Brands/calvin klein.png"}
                 width={120}
                 height={100}
                 alt="calvin klein"
+                className="absolute w-full h-full"
               />
             </div>
           </Link>

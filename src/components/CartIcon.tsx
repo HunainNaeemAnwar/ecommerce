@@ -9,7 +9,7 @@ const CartIcon = () => {
   return (
     <div className="relative inline-block">
       {/* Cart Icon */}
-      <button className="text-2xl border-none bg-none cursor-pointer rounded-full bg-[#F2F0F1] p-2 text-black hover:text-opacity-55">
+      <button className="text-2xl border-none bg-none cursor-pointer rounded-full bg-[#F2F0F1] p-[12px] sm:p-2 text-black hover:text-opacity-55">
         <ShoppingCart className="lg:w-5 lg:h-5 w-4 h-4" />
       </button>
 

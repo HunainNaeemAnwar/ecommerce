@@ -15,10 +15,10 @@ const Product = ({ product }: any) => {
     return <div>No product data available</div>;
   }
   return (
-    <div className="place-self-center">
-      <div className="px-10 py-10 rounded-lg relative group">
+    <div className="place-self-center flex flex-col gap-1 items-center pb-3 rounded-xl  border-2   ">
+      <div className=" rounded-lg relative w-[260px] h-[260px] group">
         <div
-          className="w-[160px] h-[150px] "
+          className="absolute w-full h-full  "
           style={{
             background: `url(${
               product.images && product.images[0]
@@ -31,7 +31,7 @@ const Product = ({ product }: any) => {
           }}
         >
           <Link href={`/product/${product?.slug?.current}`}>
-            <div className="overlay absolute top-0 rounded-lg left-0 right-0 w-full h-full bg-[#000] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-10 flex-col justify-end text-black">
+            <div className="overlay absolute top-0 rounded-t-lg  left-0 right-0 w-full h-full bg-[#000] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-10 flex-col justify-end text-black">
               {/* <button
               onClick={() => {
                 dispatch(addToCart(product));
@@ -48,7 +48,7 @@ const Product = ({ product }: any) => {
         </div>
       </div>
       <Link href={`/product/${product?.slug?.current}`}>
-        <h5 className="text-sm text-black mt-4 mb-1 font-Poppins font-bold">
+        <h5 className="text-sm text-black mt-4 mb-1 hover:text-gray-500 font-Poppins font-bold">
           {product.title ? product.title.toUpperCase() : "Default Title"}
         </h5>
       </Link>

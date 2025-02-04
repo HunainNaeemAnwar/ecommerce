@@ -18,11 +18,11 @@ const Counter: React.FC<CounterProps> = ({ quantity, setQuantity }) => {
   return (
     <div className="flex items-center  justify-between px-1 lg:px-4  py-2 bg-gray-200 rounded-full ">
       <button onClick={decreaseQuantity} className="p-2  ">
-        <FaMinus />
+        <FaMinus className="w-3 h-3" />
       </button>
       <span>{quantity}</span>
       <button onClick={increaseQuantity} className="p-2  ">
-        <FaPlus />
+        <FaPlus className="w-3 h-3" />
       </button>
     </div>
   );

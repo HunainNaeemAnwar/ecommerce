@@ -12,7 +12,7 @@ const CategorySection = () => {
         <div className="flex md:flex-row flex-col justify-center items-center gap-10  md:gap-4 lg:gap-6 xl:gap-10 ">
           <Link href={"/casual"}>
             {" "}
-            <div className="relative w-[380px] h-[250px] xl:w-[400px] xl:h-[250px] md:h-[180px] md:w-[290px] lg:h-[230px] lg:w-[320px]">
+            <div className="relative w-[290px] h-[200px] sm:w-[400px]  xl:w-[400px] xl:h-[250px] md:h-[180px] md:w-[290px] sm:h-[230px] lg:w-[320px]">
               <Image
                 src={"/Images/DressStyle/casual.svg"}
                 alt="casual"
@@ -27,7 +27,7 @@ const CategorySection = () => {
             </div>
           </Link>
           <Link href={"/formal"}>
-            <div className="relative w-[380px]  xl:w-[600px] xl:h-[250px] md:h-[180px] h-[250px] lg:h-[230px] lg:w-[420px]">
+            <div className="relative sm:w-[400px] w-[290px] h-[200px]  xl:w-[600px] xl:h-[250px] md:h-[180px] sm:h-[230px] lg:w-[420px]">
               <Image
                 src={"/Images/DressStyle/formal.svg"}
                 layout="fill"
@@ -46,7 +46,7 @@ const CategorySection = () => {
           {" "}
           <Link href={"/party"}>
             {" "}
-            <div className="relative w-[380px]  xl:w-[600px] xl:h-[250px] md:h-[180px] h-[250px] lg:h-[230px] lg:w-[420px] ">
+            <div className="relative sm:w-[400px] w-[290px] h-[200px] xl:w-[600px] xl:h-[250px] md:h-[180px] sm:h-[230px] lg:w-[420px] ">
               <Image
                 src={"/Images/DressStyle/party.svg"}
                 layout="fill"
@@ -61,7 +61,7 @@ const CategorySection = () => {
             </div>
           </Link>
           <Link href={"/gym"}>
-            <div className="relative w-[380px] h-[250px] xl:w-[400px] xl:h-[250px] md:h-[180px] md:w-[290px] lg:h-[230px] lg:w-[320px]">
+            <div className="relative sm:w-[400px] w-[290px] h-[200px] xl:w-[400px] xl:h-[250px] md:h-[180px] md:w-[290px] sm:h-[230px] lg:w-[320px]">
               <Image
                 src={"/Images/DressStyle/gym.svg"}
                 layout="fill"

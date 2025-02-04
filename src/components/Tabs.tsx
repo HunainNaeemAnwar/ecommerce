@@ -59,7 +59,7 @@ const TabsContent: React.FC<TabsContentProps> = ({
       {/* Tab Content */}
       <div>
         {activeTab === 0 && (
-          <ul className="font-Satoshi text-sm flex flex-col gap-3  list-disc  p-6 lg:p-8">
+          <ul className="font-Satoshi text-sm flex flex-col gap-3  list-disc  p-6 xl:p-16">
             {details.map((item, index) => (
               <React.Fragment key={index}>
                 {item?.origin && (
@@ -114,15 +114,15 @@ const TabsContent: React.FC<TabsContentProps> = ({
           </div>
         )}
         {activeTab === 2 && (
-          <ul className="font-Satoshi text-sm  flex flex-col gap-8 pl-5 p-8 lg:p-12">
+          <ul className="font-Satoshi text-sm  flex flex-col gap-4  p-2 xl:p-16">
             {faqs.map((faq, index) => (
               <li key={index}>
                 {faq?.question && (
-                  <p className="mb-1">
+                  <p className="mb-3  ">
                     <strong>Q{index + 1}:</strong> {faq.question}
                   </p>
                 )}
-                {faq?.answer && <p>{faq.answer}</p>}
+                {faq?.answer && <p className="text-blue-500">{faq.answer}</p>}
               </li>
             ))}
           </ul>

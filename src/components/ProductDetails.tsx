@@ -66,13 +66,13 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productDetails }) => {
   }
 
   return (
-    <div className="flex flex-col gap-6 mx-auto mt-20">
+    <div className="flex flex-col gap-6 mx-auto mt-10 lg:mt-0 bg-slate-400">
       {/* Product Details Section */}
       <div className="w-full grid grid-cols-1 py-6 lg:grid-cols-2 gap-6">
         {/* Image Section */}
         <div className=" grid place-content-center">
           {/* Image display logic */}
-          <div className="relative w-80 h-80 md:h-96 md:w-96 border-2 border-black rounded-2xl">
+          <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] md:h-96 md:w-96 border-2 border-black rounded-2xl">
             <Image
               src={selectedImage}
               layout="fill"
@@ -82,14 +82,14 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productDetails }) => {
           </div>
           {/* Thumbnail Images */}
           {productDetails.images?.length > 0 && (
-            <div className="flex flex-row gap-5 mt-4">
+            <div className="flex flex-row gap-2 sm:gap-4 md:gap-5 mt-4">
               {productDetails.images.map((img, idx) => {
                 const imageUrl =
                   urlFor(img)?.url() || "/Images/default-thumbnail.jpg";
                 return (
                   <div
                     key={idx}
-                    className={`relative w-[80px] h-[80px] md:w-20 md:h-20 cursor-pointer border-2 rounded-md ${
+                    className={`relative w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] md:w-20 md:h-20 cursor-pointer border-2 rounded-md ${
                       selectedImage === imageUrl ? "border-2 border-black" : ""
                     }`}
                     onClick={() => setSelectedImage(imageUrl)}

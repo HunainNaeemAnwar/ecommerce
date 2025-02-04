@@ -25,9 +25,9 @@ const Cart: React.FC = () => {
   );
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 mt-10 place-items-center py-10">
+    <div className="grid grid-cols-1 md:grid-cols-[65%_35%] mt-10  place-items-center ">
       {/* Cart Items */}
-      <div className="mx-auto flex-col py-10 mt-8 w-full md:w-3/4">
+      <div className=" flex-col px-2 mb-4  mt-8 w-full sm:w-3/4">
         {productData.length > 0 ? (
           <div className="grid grid-cols-1 gap-4">
             {productData.map(
@@ -103,42 +103,45 @@ const Cart: React.FC = () => {
               }) => (
                 <div
                   key={`${item._id}-${item.selectedColor}-${item.selectedSize}`}
-                  className="grid grid-cols-3 gap-6 p-4 border rounded-lg"
+                  className="flex flex-row justify-between  items-center    border p-2 rounded-lg"
                 >
-                  {/* Product Image */}
-                  <div className="w-24 h-24 relative border rounded-md col-span-1">
-                    <Image
-                      src={urlFor(item.images[0]).url()}
-                      layout="fill"
-                      alt={String(item.title || "")}
-                      className="absolute rounded-md"
-                    />
-                  </div>
-
-                  {/* Product Details */}
-                  <div className="flex flex-col gap-2 col-span-1 font-Satoshi">
-                    <h2 className="text-lg font-semibold">{item.title}</h2>
-                    <p className="text-gray-600">{`$${item.price.toFixed(2)}`}</p>
-                    {/* Selected Color */}
-                    <div className="flex items-center">
-                      <span>Color:</span>
-                      <div
-                        className="w-5 h-5 rounded-full ml-2 border"
-                        style={{
-                          backgroundColor: item.selectedColor,
-                          borderColor:
-                            item.selectedColor === "#ffffff"
-                              ? "#ccc"
-                              : "transparent",
-                        }}
-                      ></div>
+                  <div className="flex justify-center  sm:gap-2 relative items-center   ">
+                    {/* Product Image */}
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 relative border rounded-md ">
+                      <Image
+                        src={urlFor(item.images[0]).url()}
+                        layout="fill"
+                        alt={String(item.title || "")}
+                        className="absolute rounded-md w-full h-full"
+                      />
                     </div>
-                    {/* Selected Size */}
-                    <p>Size: {item.selectedSize}</p>
-                  </div>
 
+                    {/* Product Details */}
+                    <div className="flex flex-col absolute top-0 bottom-0  left-[110px] sm:left-0  text-[16px] sm:relative sm:text-sm font-Poppins w-24">
+                      <h2 className="text-sm font-semibold leading-4  ">
+                        {item.title}
+                      </h2>
+                      <p className=" opacity-70">{`$${item.price.toFixed(2)}`}</p>
+                      {/* Selected Color */}
+                      <div className="flex items-center ">
+                        <span className="opacity-70">Color:</span>
+                        <div
+                          className="w-5 h-5 rounded-full ml-2 border"
+                          style={{
+                            backgroundColor: item.selectedColor,
+                            borderColor:
+                              item.selectedColor === "#ffffff"
+                                ? "#ccc"
+                                : "transparent",
+                          }}
+                        ></div>
+                      </div>
+                      {/* Selected Size */}
+                      <p className="opacity-70">Size: {item.selectedSize}</p>
+                    </div>
+                  </div>
                   {/* Quantity Controls */}
-                  <div className="flex flex-col justify-between items-end col-span-1">
+                  <div className="flex  flex-col items-end  gap-10 ">
                     <button
                       onClick={() =>
                         dispatch(
@@ -165,7 +168,7 @@ const Cart: React.FC = () => {
                         }
                         className="p-1 border rounded-full hover:bg-gray-200"
                       >
-                        <FaMinus />
+                        <FaMinus className="w-3 h-3" />
                       </button>
                       <span>{item.quantity}</span>
                       <button
@@ -180,7 +183,7 @@ const Cart: React.FC = () => {
                         }
                         className="p-1 border rounded-full hover:bg-gray-200"
                       >
-                        <FaPlus />
+                        <FaPlus className="w-3 h-3" />
                       </button>
                     </div>
                   </div>
@@ -189,41 +192,42 @@ const Cart: React.FC = () => {
             )}
           </div>
         ) : (
-          <div className="flex flex-col justify-center items-center font-Satoshi">
+          <div className="flex flex-col justify-center items-center py-20 font-Satoshi">
             <p>No Products Available</p>
           </div>
         )}
       </div>
-
       {/* Order Summary */}
-      <div className="flex flex-col gap-4 font-Satoshi border-2 rounded-md px-6 py-4 w-full md:w-2/3 lg:w-1/2">
-        <h2 className="font-bold text-2xl">Order Summary</h2>
-        <div className="flex justify-between text-base ">
+      <div className=" font-Poppins  mt-6 flex flex-col items-center border-2 relative w-[85%] md:w-full  h-[300px] md:h-[320px]  md:mr-6 mb-6   rounded-md  py-4  ">
+        <h2 className="font-bold text-2xl mb-4 text-center leading-5 ">
+          Order Summary
+        </h2>
+        <div className="flex justify-center xl:gap-[290px] lg:gap-[160px] gap-[100px] text-[16px] sm:text-sm w-full absolute top-[60px]">
           <p className="opacity-60">Subtotal</p>
           <p>{`$${subtotal.toFixed(2)}`}</p>
         </div>
-        <div className="flex justify-between text-base">
+        <div className="flex justify-center xl:gap-[248px] lg:gap-[118px] gap-[58px] text-[16px] sm:text-sm w-full absolute top-[90px]">
           <p className="opacity-60">Discount (10%)</p>
           <p>{`$${((subtotal * 10) / 100).toFixed(2)}`}</p>
         </div>
         {/* Additional fees/taxes can be added here */}
-        <div className="flex justify-between text-base font-semibold">
+        <div className="flex justify-center xl:gap-[310px] lg:gap-[180px] gap-[120px] text-[16px] sm:text-sm font-semibold w-full absolute top-[120px]">
           <p className="opacity-60">Total</p>
           <p>{`$${(subtotal - (subtotal * 10) / 100).toFixed(2)}`}</p>
         </div>
         {/* Coupon Code Input */}
-        <div className="flex items-center mt-4">
+        <div className="flex items-center mt-4 w-[90%] absolute top-32">
           <input
             type="text"
             placeholder="Enter coupon code"
-            className="flex-1 px-4 py-2 border rounded-l-full focus:outline-none"
+            className="flex-1 px-4 py-2 border text-[16px]  w-full sm:text-sm rounded-l-full focus:outline-none"
           />
-          <button className="px-6 py-2 bg-black text-white rounded-r-full">
+          <button className="px-6 py-2 bg-black text-[16px] sm:text-sm text-white rounded-r-full">
             Apply
           </button>
         </div>
         {/* Checkout Button */}
-        <button className="mt-4 px-6 py-3 bg-black text-white rounded-full">
+        <button className="mt-4 px-6 py-2 text-[16px] sm:text-sm bg-black text-white rounded-full w-[90%] absolute top-44">
           Proceed to Checkout
         </button>
       </div>

@@ -48,7 +48,7 @@ const HeaderSection = () => {
 
   return (
     <nav className="relative top-8 w-full py-4 z-30 flex justify-center items-center bg-white border-b-2 border-[#F2F0F1]">
-      <div className="w-full px-4 lg:px-6 xl:px-20 flex justify-between items-center gap-4 xl:gap-10">
+      <div className="w-full lg:px-6 xl:px-20 flex justify-between px-2  gap-1 items-center sm:gap-4 xl:gap-10">
         {/* Hamburger Mobile-menu */}
         <div className="flex items-center justify-center gap-3">
           <div className="md:hidden block z-50 mt-3">
@@ -56,7 +56,7 @@ const HeaderSection = () => {
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
-              <HiBars3 className="text-black w-6 h-6" />
+              <HiBars3 className="text-black w-7 h-7" />
             </button>
             <div
               className={`absolute top-0 left-0 w-full bg-white p-12 rounded-lg shadow-lg z-50 transition-transform duration-500 transform ${
@@ -65,13 +65,13 @@ const HeaderSection = () => {
             >
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute left-4 top-7"
+                className="absolute left-2 top-7"
               >
-                <HiBars3 className="text-black w-6 h-6" />
+                <HiBars3 className="text-black w-7 h-7" />
               </button>
               <ul className="flex flex-col items-center gap-10">
                 {dropOptions.length > 0 && (
-                  <li className="absolute right-4 top-12">
+                  <li className="absolute right-2 sm:right-4 top-12">
                     <DropDown DropDownOptions={dropOptions} />
                   </li>
                 )}
@@ -93,7 +93,7 @@ const HeaderSection = () => {
             </div>
           </div>
           {/* Desktop Navbar */}
-          <h2 className="font-text-black text-3xl lg:text-4xl font-Integral">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-Integral">
             <Link href={"/"}>Shop.co</Link>
           </h2>
         </div>
@@ -120,7 +120,7 @@ const HeaderSection = () => {
           )}
         </ul>
         {/* Icons and Cart */}
-        <div className="flex justify-center items-center gap-2 lg:gap-3">
+        <div className="flex justify-center items-center gap-1 sm:gap-2 lg:gap-3">
           <Search />
           <Link href={"/cart-page"}>
             <CartIcon />
