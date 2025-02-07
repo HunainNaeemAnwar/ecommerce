@@ -30,7 +30,7 @@ const Product = ({ product }: any) => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <Link href={`/product/${product?.slug?.current}`}>
+          <Link href={`/${product.categry}/${product?.slug?.current}`}>
             <div className="overlay absolute top-0 rounded-t-lg  left-0 right-0 w-full h-full bg-[#000] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-10 flex-col justify-end text-black">
               {/* <button
               onClick={() => {

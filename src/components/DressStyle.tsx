@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const CategorySection = () => {
   return (
-    <section className=" flex flex-col gap-10 rounded-3xl mt-[60px] py-10 bg-[#F0F0F0] w-full ">
+    <section className=" flex flex-col gap-10 rounded-3xl mt-[60px] min-h-screen  py-10 bg-[#F0F0F0] w-full ">
       <div className="flex justify-center items-center  text-center text-[36px] lg:text-[48px] font-Integral ">
         <p>BROWSE BY dress STYLE</p>
       </div>

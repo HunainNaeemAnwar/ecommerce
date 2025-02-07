@@ -5,7 +5,8 @@ import localFont from "next/font/local";
 import SignUpBar from "@/components/SignUpBar";
 import NavBar from "@/components/NavBar";
 import FooterSection from "@/components/Footer";
-
+import Breadcrumbs from "@/components/BreadCrumbs";
+import LogOut from "@/components/LogOut";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -50,7 +51,12 @@ export default function RootLayout({
         <Provider>
           <SignUpBar />
           <NavBar />
+          {/* <div className="absolute top-0 z-50">
+            {" "}
+            <Breadcrumbs />
+          </div> */}
           {children}
+          <LogOut />
           <FooterSection />
         </Provider>
       </body>

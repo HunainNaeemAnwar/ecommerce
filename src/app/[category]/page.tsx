@@ -52,10 +52,10 @@ const CategoryPage = async ({ params }: any) => {
   });
 
   return (
-    <main className="  py-10 px-4 lg:px-[40px] xl:px-[100px] ">
+    <main className=" min-h-screen  py-10 px-4 lg:px-[40px] xl:px-[100px]">
       <FilterComponent />
 
-      <h1 className="text-2xl font-Poppins mt-4 font-bold tracking-tight mb-8 capitalize">
+      <h1 className="text-2xl font-Poppins mt-8 md:mt-12 font-bold tracking-tight mb-8 capitalize">
         {titleCase(categoryData.title)}
       </h1>
       {products.length > 0 ? (

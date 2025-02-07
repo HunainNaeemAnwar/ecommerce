@@ -5,8 +5,10 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 const DropDown = ({
   DropDownOptions,
+  onClick,
 }: {
   DropDownOptions: { route?: string; label: string; value: string }[];
+  onClick: () => void;
 }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +23,7 @@ const DropDown = ({
     setIsOpen(false);
     if (option.route) {
       router.push(option.route);
+      onClick();
     } else {
       console.warn("Router is not available");
     }

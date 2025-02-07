@@ -15,7 +15,7 @@ const CartItems = ({ item }: any) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="grid grid-cols-3 md:gap-6 p-4">
+    <div className="grid grid-cols-3 md:gap-6 min-h-screen  p-4">
       <div className="w-20 h-20 relative border rounded-md col-span-1">
         <Image
           src={urlFor(item.images[0]).url()}

@@ -9,7 +9,7 @@ interface Props {
 
 const Arrival = ({ productData }: Props) => {
   return (
-    <section className=" flex flex-col gap-10 mt-[60px] border-b  border-black border-opacity-30 py-10  w-full lg:px-[30px] mb-20 ">
+    <section className=" flex flex-col gap-10 mt-[60px] border-b  min-h-screen  border-black border-opacity-30 py-10  w-full lg:px-[30px] mb-20 ">
       <div className=" flex justify-center items-center text-[36px] lg:text-[48px] font-Integral text-black">
         <p>TOP SELLING</p>
       </div>
