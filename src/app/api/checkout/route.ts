@@ -43,14 +43,14 @@ export async function POST(req: NextRequest) {
       payment_method_types: ["card"],
       line_items: transformedItems,
       mode: "payment",
-      success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXTAUTH_URL}/cancel`,
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/cancel`,
       metadata: {
         email,
         address: address,
         postalCode: postalCode,
         city: city,
-        name:items.name
+        name: items.name,
       },
     });
 
