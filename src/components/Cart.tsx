@@ -176,9 +176,9 @@ const Cart: React.FC = () => {
               }) => (
                 <div
                   key={`${item._id}-${item.selectedColor}-${item.selectedSize}`}
-                  className="flex flex-row justify-between  items-center    border p-2 rounded-lg"
+                  className="flex flex-row justify-between  items-center h-32   border p-2 rounded-lg"
                 >
-                  <div className="flex justify-center  sm:gap-2 relative items-center   ">
+                  <div className="flex justify-center h-24   sm:gap-2 relative items-center   ">
                     {/* Product Image */}
                     <div className="w-20 h-20 sm:w-24 sm:h-24 relative border rounded-md ">
                       <Image
@@ -190,7 +190,7 @@ const Cart: React.FC = () => {
                     </div>
 
                     {/* Product Details */}
-                    <div className="flex flex-col absolute top-0 bottom-0 w-[250px] overflow-hidden left-[110px] sm:left-4  text-[16px] sm:relative sm:text-sm font-Poppins ">
+                    <div className="flex py-2 sm:py-0 flex-col absolute top-0 bottom-0 w-[250px] overflow-hidden left-[110px] sm:left-4  text-[16px] sm:relative sm:text-sm font-Poppins ">
                       <h2 className="text-sm font-semibold leading-4  ">
                         {item.title}
                       </h2>
@@ -226,7 +226,7 @@ const Cart: React.FC = () => {
                         )
                       }
                     >
-                      <TrashIcon className="w-5 h-5 text-gray-600" />
+                      <TrashIcon className="w-5 h-5 z-20 text-gray-600" />
                     </button>
                     <div className="flex items-center gap-2">
                       <button
@@ -239,7 +239,7 @@ const Cart: React.FC = () => {
                             })
                           )
                         }
-                        className="p-1 border rounded-full hover:bg-gray-200"
+                        className="p-2  z-20 border rounded-full hover:bg-gray-200"
                       >
                         <FaMinus className="w-3 h-3" />
                       </button>
@@ -254,7 +254,7 @@ const Cart: React.FC = () => {
                             })
                           )
                         }
-                        className="p-1 border rounded-full hover:bg-gray-200"
+                        className="p-2 z-20 border rounded-full hover:bg-gray-200"
                       >
                         <FaPlus className="w-3 h-3" />
                       </button>

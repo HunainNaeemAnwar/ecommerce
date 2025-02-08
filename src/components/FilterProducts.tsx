@@ -63,7 +63,7 @@ const FilterProducts = () => {
       {/* Filter icon for all screens */}
       {isFilterVisible ? null : (
         <button
-          className="absolute right-4 top-[190px] md:top-40 xl:top-36 z-50 rounded-lg flex items-center gap-2 px-4 py-2 bg-black text-white font-Satoshi transition-transform duration-300 hover:scale-105"
+          className="absolute right-4 top-[180px] md:top-40 xl:top-36 z-50 rounded-lg flex items-center gap-2 px-4 py-2 bg-black text-white font-Satoshi transition-transform duration-300 hover:scale-105"
           onClick={() => setFilterVisible(!isFilterVisible)}
         >
           <Filter className="w-4 h-4" />

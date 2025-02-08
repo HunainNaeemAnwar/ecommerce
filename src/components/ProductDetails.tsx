@@ -66,7 +66,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productDetails }) => {
   }
 
   return (
-    <div className="flex flex-col gap-6 mx-auto mt-10 lg:mt-0 bg-slate-400">
+    <div className="flex flex-col gap-6 mx-auto mt-10 lg:mt-0 ">
       {/* Product Details Section */}
       <div className="w-full grid grid-cols-1 py-6 lg:grid-cols-2 gap-6">
         {/* Image Section */}
@@ -204,7 +204,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productDetails }) => {
           faqs={productDetails.faqs || []}
         />
       ) : (
-        <div>No additional information available.</div>
+        <div className="flex justify-center items-center border-t  py-10 border-black">
+          No additional information available.
+        </div>
       )}
 
       <Toaster
