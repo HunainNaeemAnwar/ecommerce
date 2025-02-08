@@ -50,19 +50,22 @@ const Cart: React.FC = () => {
     setButtonText("Redirecting...");
     if (session?.user) {
       const stripe = await stripePromise;
-      const response = await fetch("http://localhost:3000/api/checkout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          items: productData,
-          email: session?.user?.email,
-          address: formData.address,
-          postalCode: formData.postalCode,
-          city: formData.city,
-        }),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            items: productData,
+            email: session?.user?.email,
+            address: formData.address,
+            postalCode: formData.postalCode,
+            city: formData.city,
+          }),
+        }
+      );
       const data = await response.json();
       if (response.ok) {
         stripe?.redirectToCheckout({ sessionId: data.id });
